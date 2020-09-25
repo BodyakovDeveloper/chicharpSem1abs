@@ -1,24 +1,42 @@
 ﻿using System;
 
-namespace Laba_1_Sprinter
+namespace Laba_1
 {
     class Program
     {
         static void Main(string[] args)
         {
-            float S, V, T;
+            double u = 0, S = 1;
+            int start, end;
 
-            Console.Write("Введите сколько времени бежал спринтер(в минутах): ");
+            Console.WriteLine("Введите начальное значение: ");
+            do
+            {
+                start = Convert.ToInt32(Console.ReadLine());
+                if (start < 0)
+                {
+                    Console.WriteLine("Введите другое значение: ");
+                }
+            } while (start < 0);
 
-            T = float.Parse(Console.ReadLine());
+            Console.WriteLine("Введите значения за которое нельзя перейти: ");
+            do
+            {
+                end = Convert.ToInt32(Console.ReadLine());
+                if (end < start)
+                {
+                    Console.WriteLine("Введите другое значение: ");
+                }
+            } while (end < start);
 
-            Console.Write("Введите с какой скоростью бежал спринтер(м/с): ");
-
-            V = float.Parse(Console.ReadLine());
-
-            S = V * T*60;
-
-            Console.WriteLine("Расстояние которое пробежал спринтер:  " + S + " метров");
+            for (int i = start; i <= end; i++)
+            {
+                u = (i * i - Math.Pow(-1, i * i + 1) * i) / (Math.Pow(i, 2) + 2);
+                S *= u;
+                Console.WriteLine("u" + i + "=" + u);
+                u = 0;
+            }
+            Console.WriteLine("Произведение ряда = " + S);
 
             Console.ReadLine();
         }
