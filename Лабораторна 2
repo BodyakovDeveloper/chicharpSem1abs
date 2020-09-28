@@ -1,5 +1,5 @@
 ﻿using System;
-
+//Варіант 9: Перевірити парність цифр трьохзначного числа
 namespace Laba_2
 {
     class Program
