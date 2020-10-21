@@ -7,11 +7,14 @@ namespace Laba__5_cs
         static void Main(string[] args)
         {
             Random rnd = new Random();
-            byte m,n;
+           /* byte m,n;
             Console.Write("Введите кол-во строк в масиве: ");
             m = Convert.ToByte(Console.ReadLine());
             Console.Write("Введите кол-во столбиков в масиве: ");
             n = Convert.ToByte(Console.ReadLine());
+            */
+            const byte m = 5;
+            const byte n = 5;
             
             int[,] arr = new int[m,n];
             int[] farr = new int[m];
