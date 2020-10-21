@@ -9,10 +9,11 @@ namespace laba_4_cs
         static void Main(string[] args)
         {
             Random rnd = new Random();
-            int N;
+           // int N;
             int n = 1;
-            Console.Write("Введите кол-во елементов в масиве: ");
-            N = Convert.ToInt32(Console.ReadLine());
+           // Console.Write("Введите кол-во елементов в масиве: ");
+           // N = Convert.ToInt32(Console.ReadLine());
+           const int N = 5;
             int[] arr = new int[N];
             int[] b = new int[arr.Length];
 
