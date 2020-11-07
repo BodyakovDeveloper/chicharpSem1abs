@@ -37,10 +37,10 @@ namespace Independent_work_4_cs_4._11
 
         public override string ToString()
         {
-            return "Provider={ priceToConnect=" + priceToConnect +
-                    " abonplata=" + abonplata +
-                    " internetSpeed=" + internetSpeed +
-                    " nameOfTariff=" + nameOfTariff;
+            return "Provider={ Стоимость подключения=" + priceToConnect +
+                    " Абонплата=" + abonplata +
+                    " Скорость интернета=" + internetSpeed +
+                    " Названия тарифа=" + nameOfTariff+ " }";
         }
 
     }
@@ -82,7 +82,9 @@ namespace Independent_work_4_cs_4._11
             return new List<Provider>() {
             new Provider(1,2,5,"Бест"),
             new Provider(5, 1, 1, "вест"),
-            new Provider(2,7, 6, "зест")
+            new Provider(2,7, 6, "зест"),
+            new Provider(4,5,7,"Family"),
+            new Provider(6,8,8,"No boarders")
             };
         }
     }
