@@ -5,7 +5,7 @@ namespace ConsoleApp3
 {
     public static class Extension
     {
-        public static int[] AddLast(this int[] array, int value)
+        public static int[] AddValue(this int[] array, int value)
         {
             var List = new List<int>();
             List.AddRange(array.ToList());
@@ -16,7 +16,13 @@ namespace ConsoleApp3
 
     class Program
     {
-       
+        static void Write(int[] arr)
+        {
+            foreach (var item in arr)
+            {
+                Console.Write(item + " ");
+            }
+        }
         static void Main(string[] args)
         {
             int[] arr = new int[] { 25, 38, 4, 100, 200, 45, 13, 100, 4 };
@@ -28,7 +34,7 @@ namespace ConsoleApp3
                 Console.Write($"{arr[i]}; ");
             }
 
-            arr.AddLast(100);
+            arr.AddValue(100);
 
             Console.WriteLine("\n\nArray after adding the last element:");
 
@@ -36,6 +42,7 @@ namespace ConsoleApp3
             {
                 Console.Write($"{arr[i]}; ");
             }
+            Write(arr);
 
             Console.ReadLine();
         }
