@@ -1,0 +1,106 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+namespace LW7
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            ListInts ints = new ListInts(new List<int>
+            {
+                2,
+                2,
+                2,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                2,
+                2,
+                2,
+                2,
+                2,
+                2,
+                2,
+                2,
+                2,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+            });
+            Console.WriteLine(ints.GetMaxSequence());
+        }
+    }
+    public class ListInts
+    {
+        private List<int> ints;
+        public ListInts()
+        {
+            ints = new List<int>();
+        }
+
+        public ListInts(List<int> Ints)
+        {
+            ints = Ints;
+        }
+
+        public bool AddValue(int value)
+        {
+            if (value is 1 || value is 2)
+            {
+                ints.Add(value);
+                return true;
+            }
+            return false;
+        }
+
+        public int GetMaxSequence()
+        {
+            var maxCount = 0;
+            var sequence = 0;
+            var currentItem = ints.First();
+            foreach (var item in ints)
+            {
+                if (currentItem == item)
+                {
+                    maxCount++;
+                    continue;
+                }
+                if (sequence < maxCount)
+                {
+                    sequence = maxCount;
+                    maxCount = 0;
+                }
+                currentItem = item;
+            }
+            if (sequence < maxCount)
+                sequence = maxCount;
+            return ++sequence;
+        }
+
+        public int GetMaxSequenceBy1()
+        {
+            return ints.Count(d => d == 1);
+        }
+
+        public int GetMaxSequenceBy2()
+        {
+            return ints.Count(d => d == 2);
+        }
+
+        public void Remove(int index)
+        {
+            var value = ints.ElementAt(index);
+            if (value != 0)
+                ints.Remove(value);
+        }
+    }
+}
