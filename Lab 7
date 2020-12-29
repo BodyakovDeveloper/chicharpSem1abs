@@ -12,8 +12,8 @@ namespace LW7
                 2,
                 2,
                 2,
-                1,
-                1,
+                2,
+                2,
                 1,
                 1,
                 1,
@@ -36,7 +36,7 @@ namespace LW7
                 1,
                 1,
             });
-            Console.WriteLine(ints.GetMaxSequence());
+            ints.WriteSequence();
         }
     }
     public class ListInts
@@ -62,30 +62,33 @@ namespace LW7
             return false;
         }
 
-        public int GetMaxSequence()
+        public void WriteSequence()
         {
-            var maxCount = 0;
-            var sequence = 0;
-            var currentItem = ints.First();
-            foreach (var item in ints)
+            int currentElement = 0, nextElement = 0, previewElement = 0;
+            for (int i = 0; i < ints.Count; i++)
             {
-                if (currentItem == item)
+                currentElement = ints[i];
+                if (i == 0)
                 {
-                    maxCount++;
-                    continue;
+                    nextElement = ints[i + 1];
+                    previewElement = ints[i];
                 }
-                if (sequence < maxCount)
+                else if (i == ints.Count - 1)
                 {
-                    sequence = maxCount;
-                    maxCount = 0;
+                    nextElement = ints[i];
+                    previewElement = ints[i - 1];
                 }
-                currentItem = item;
+                else
+                {
+                    nextElement = ints[i + 1];
+                    previewElement = ints[i - 1];
+                }
+                if (currentElement == nextElement || currentElement == previewElement)
+                {
+                    Console.WriteLine(ints[i]);
+                }
             }
-            if (sequence < maxCount)
-                sequence = maxCount;
-            return ++sequence;
         }
-
         public int GetMaxSequenceBy1()
         {
             return ints.Count(d => d == 1);
@@ -102,5 +105,6 @@ namespace LW7
             if (value != 0)
                 ints.Remove(value);
         }
+        
     }
 }
